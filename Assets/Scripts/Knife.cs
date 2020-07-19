@@ -33,9 +33,7 @@ public class Knife : MonoBehaviour
         {
             if (!isFire)
             {
-                Stop();
-                Fire();
-                rigidbody.gravityScale = 1.0f;
+                
             }
             else
             {
@@ -61,6 +59,13 @@ public class Knife : MonoBehaviour
     private void FixedUpdate()
     {
         
+    }
+
+    public void KnifeShooting()
+    {
+        Stop();
+        Fire();
+        rigidbody.gravityScale = 1.0f;
     }
 
     private void Shooting()
@@ -95,6 +100,7 @@ public class Knife : MonoBehaviour
         Instantiate(eft, collision.transform.position, Quaternion.identity);
         Destroy(collision.gameObject);
         camera.Shake();
+        SpawnManager.instance.Spawn();
     }
 
 
