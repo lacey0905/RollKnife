@@ -5,10 +5,12 @@ using UnityEngine;
 public class HitObject : MonoBehaviour
 {
     public ObjectBreak obj;
+    public GameObject eft;
 
     public void ObjectBreak()
     {
         Instantiate(obj, transform.position, Quaternion.identity);
+        Instantiate(eft, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 

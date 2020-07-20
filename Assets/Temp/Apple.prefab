@@ -134,4 +134,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 3228306486878079416, guid: aae265e6e9c16cd4888ac94eacebd902, type: 3}
+  eft: {fileID: 6233111519220629016, guid: 06880ca2256a44f039b7d3ca2b4bb989, type: 3}
   spawnSpeed: 10
