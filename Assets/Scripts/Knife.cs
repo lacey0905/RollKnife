@@ -97,8 +97,9 @@ public class Knife : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Instantiate(eft, collision.transform.position, Quaternion.identity);
-        Destroy(collision.gameObject);
+        //Instantiate(eft, collision.transform.position, Quaternion.identity);
+        //Destroy(collision.gameObject);
+        collision.GetComponent<HitObject>().ObjectBreak();
         camera.Shake();
         SpawnManager.instance.Spawn();
     }
