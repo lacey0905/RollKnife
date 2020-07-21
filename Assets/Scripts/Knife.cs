@@ -5,104 +5,94 @@ using UnityEngine;
 public class Knife : MonoBehaviour
 {
 
+    public GameObject eft;
+    public GameObject hitEft;
+
     Rigidbody2D rigidbody;
+
+    public float upPower;
+    public float shootingPower;
+    public float torque;
+
+    Vector3 direction;
+    float coolTime;
+    bool isShooting = false;
+    bool isHit = false;
 
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    private bool isFire = false;
-    private bool isShooting = false;
+    private void Start()
+    {
+        Up();
+    }
 
-    public float power;
-
-    Vector3 direction = Vector3.zero;
-    public float rotSpeed;
-
-    public float shootingPower;
-
-    public GameObject eft;
-
-    public SceneCamera camera;
-    
     private void Update()
     {
+        coolTime += Time.deltaTime;
         
-        if(Input.GetMouseButtonDown(0))
+
+        if (Input.GetMouseButtonDown(0) && coolTime > 0.2f)
         {
-            if (!isFire)
-            {
-                
-            }
-            else
-            {
-                Shooting();
-            }
+            // 화면 터치
+            Shooting();
         }
-        else if (Input.GetMouseButtonDown(1))
+
+        if(coolTime > 3.0f && !isShooting)
         {
-            Stop();
+            HitCheck();
         }
 
         if(!isShooting)
         {
-            direction = new Vector3(direction.x, direction.y, direction.z + rotSpeed * Time.deltaTime);
-            transform.rotation = Quaternion.Euler(direction);
+            Rotate();
         }
-        else
-        {
-            transform.position += transform.up * shootingPower * Time.deltaTime;
-        }
+
     }
 
-    private void FixedUpdate()
+    private void Up()
     {
-        
-    }
-
-    public void KnifeShooting()
-    {
-        Stop();
-        Fire();
         rigidbody.gravityScale = 1.0f;
+        rigidbody.AddForce(Vector2.up * upPower, ForceMode2D.Impulse);
+    }
+
+    private void Rotate()
+    {
+        direction = new Vector3(0f, 0f, direction.z + torque * Time.deltaTime);
+        transform.rotation = Quaternion.Euler(direction);
     }
 
     private void Shooting()
     {
-        isFire = false;
+        Instantiate(eft, transform.position, Quaternion.identity);
         isShooting = true;
         rigidbody.gravityScale = 0f;
-        rigidbody.velocity = Vector2.zero;
-
-        Instantiate(eft, transform.position, Quaternion.identity);
-
+        rigidbody.velocity = transform.up * shootingPower * Time.deltaTime;
+        Invoke("HitCheck", 1.0f);
     }
 
-    private void Fire()
+    private void HitCheck()
     {
-        isFire = true;
-        rigidbody.AddForce(Vector3.up * power, ForceMode2D.Impulse);
-    }
-
-    private void Stop()
-    {
-        isFire = false;
-        isShooting = false;
-        rigidbody.velocity = Vector2.zero;
-        rigidbody.gravityScale = 0f;
-        transform.position = new Vector3(0f, -6f, 0f);
-        transform.rotation = Quaternion.Euler(Vector3.zero);
+        if(isHit)
+        {
+            StageManager.instance.MakeLevel();
+        }
+        else if (!isHit)
+        {
+            Debug.Log("Lose");
+        }
+        Destroy(this.gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Instantiate(eft, collision.transform.position, Quaternion.identity);
-        //Destroy(collision.gameObject);
-        collision.GetComponent<HitObject>().ObjectBreak();
-        camera.Shake();
-        SpawnManager.instance.Spawn();
+        collision.GetComponent<FieldObject>().ObjectBreak();
+        isHit = true;
+        StageManager.instance.AddScroe(1);
+        StageManager.instance.cam.GetComponent<SceneCamera>().Shake();
+        Instantiate(hitEft, collision.transform.position, Quaternion.identity);
     }
-
 
 }

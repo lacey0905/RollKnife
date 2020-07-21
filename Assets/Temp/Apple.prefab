@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 7078396105954921398}
   - component: {fileID: 7078396105954921396}
   - component: {fileID: 7078396105954921399}
-  - component: {fileID: 3040145427923938175}
+  - component: {fileID: 2286978694010071632}
   m_Layer: 0
   m_Name: Apple
   m_TagString: Untagged
@@ -152,7 +152,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3040145427923938175
+--- !u!114 &2286978694010071632
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,13 +161,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7078396105954921395}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a833232d75b31344b497bf64f9e0c63, type: 3}
+  m_Script: {fileID: 11500000, guid: b5e6346c203fe4ca1af48e91f4978f3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 3228306486878079416, guid: aae265e6e9c16cd4888ac94eacebd902, type: 3}
-  eft: {fileID: 6233111519220629016, guid: 06880ca2256a44f039b7d3ca2b4bb989, type: 3}
   model: {fileID: 8457897048614504634}
-  spawnSpeed: 10
+  spawnSpeed: 5
 --- !u!1 &8457897048614504634
 GameObject:
   m_ObjectHideFlags: 0
