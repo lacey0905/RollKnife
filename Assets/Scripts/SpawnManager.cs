@@ -13,24 +13,31 @@ public class SpawnManager : MonoBehaviour
         SpawnManager.instance = this;
     }
 
-    private void Start()
+    bool isStart = false;
+
+    private void Update()
     {
-        Spawn();
+        if(!isStart)
+        {
+            if(Input.GetMouseButtonDown(0))
+            {
+                isStart = true;
+                Spawn();
+            }
+        }
     }
-
-    public GameObject target;
-
-    Vector3 curSpawnPos;
 
     public void Spawn()
     {
-        curSpawnPos = new Vector3(Random.Range(-2f, 2f), 3.5f, 0f);
         Invoke("WaitSpawn", 0.5f);
     }
 
     void WaitSpawn()
     {
-        Instantiate(target, curSpawnPos, Quaternion.identity);
+        int newStage = Random.Range(0, 2);
+        StageController.instance.newStage(newStage);
+        Vector3 starting = StageController.instance.newStageStarting(newStage);
+        knife.transform.position = starting;
         knife.KnifeShooting();
     }
     

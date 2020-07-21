@@ -6,6 +6,7 @@ public class HitObject : MonoBehaviour
 {
     public ObjectBreak obj;
     public GameObject eft;
+    public GameObject model;
 
     public void ObjectBreak()
     {
@@ -24,7 +25,7 @@ public class HitObject : MonoBehaviour
         {
             scaleCount = 1.0f;
         }
-        transform.localScale = new Vector3(scaleCount, scaleCount, 1f);
+        model.transform.localScale = new Vector3(scaleCount, scaleCount, 1f);
     }
 
 }
