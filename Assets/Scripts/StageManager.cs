@@ -13,7 +13,8 @@ public class StageManager : MonoBehaviour
 
     int currentScore = 0;
 
-    public Text UIScore;
+    public GameObject UIScore;
+    public GameObject start;
 
     public SceneCamera cam;
 
@@ -21,23 +22,19 @@ public class StageManager : MonoBehaviour
     {
         StageManager.instance = this;
     }
-
-    private void Update()
+    
+    public void GameStart()
     {
-
-        if(Input.GetKeyDown(KeyCode.Z))
-        {
-            // 스타트 버튼 누름
-            // ui 사라지고 바로 시작 됨
-            MakeLevel();
-        }
-
+        UIScore.SetActive(true);
+        start.SetActive(false);
+        MakeLevel();
+        UIScore.GetComponent<Text>().text = "0";
     }
 
     public void AddScroe(int score)
     {
         currentScore += score;
-        UIScore.text = currentScore.ToString();
+        UIScore.GetComponent<Text>().text = currentScore.ToString();
     }
 
 

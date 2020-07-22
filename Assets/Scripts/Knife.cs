@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Knife : MonoBehaviour
 {
 
     public GameObject eft;
     public GameObject hitEft;
+    public GameObject trail;
 
     Rigidbody2D rigidbody;
 
@@ -18,6 +20,7 @@ public class Knife : MonoBehaviour
     float coolTime;
     bool isShooting = false;
     bool isHit = false;
+
 
     private void Awake()
     {
@@ -66,6 +69,7 @@ public class Knife : MonoBehaviour
 
     private void Shooting()
     {
+        trail.SetActive(true);
         Instantiate(eft, transform.position, Quaternion.identity);
         isShooting = true;
         rigidbody.gravityScale = 0f;
@@ -81,7 +85,7 @@ public class Knife : MonoBehaviour
         }
         else if (!isHit)
         {
-            Debug.Log("Lose");
+            SceneManager.LoadScene("EndPage");
         }
         Destroy(this.gameObject);
     }
