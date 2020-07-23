@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1783707800659798270}
-  - component: {fileID: 6238647484568603990}
   - component: {fileID: 2325355250976379841}
   - component: {fileID: -6926543126413425238}
+  - component: {fileID: -8981445414406637693}
   m_Layer: 0
   m_Name: Knife
   m_TagString: Untagged
@@ -35,24 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6238647484568603990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1783707800659798265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08865c5fe830ec846ba81dba2873a972, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eft: {fileID: 100000, guid: a381ded06c204a54e909a18e574f7436, type: 3}
-  hitEft: {fileID: 100000, guid: 9670926e073251b4d9e7cc13c294ea9e, type: 3}
-  trail: {fileID: 8656661779499170010}
-  upPower: 13
-  shootingPower: 3500
-  torque: 400
 --- !u!50 &2325355250976379841
 Rigidbody2D:
   serializedVersion: 4
@@ -100,6 +82,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-8981445414406637693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783707800659798265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67fb71637f74c7349ba459e8757d9615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throwPower: 13
+  firePower: 30
+  torque: 350
 --- !u!1 &1783707800881212477
 GameObject:
   m_ObjectHideFlags: 0

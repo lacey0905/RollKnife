@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SceneCamera : MonoBehaviour
+public class CameraContoller : MonoBehaviour
 {
-
     public float duration;
     public float magnitude;
+
+    public static CameraContoller instance;
+
+    private void Awake()
+    {
+        CameraContoller.instance = this;
+    }
 
     public void Shake()
     {
@@ -27,5 +33,4 @@ public class SceneCamera : MonoBehaviour
         }
         transform.localPosition = Vector3.zero;
     }
-
 }

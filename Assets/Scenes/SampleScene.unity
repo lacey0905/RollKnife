@@ -197,6 +197,7 @@ GameObject:
   m_Component:
   - component: {fileID: 122131296}
   - component: {fileID: 122131295}
+  - component: {fileID: 122131297}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -233,6 +234,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &122131297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122131294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4700d13ac9fdacc4d887b2c3d51fa4b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0
+  magnitude: 0
 --- !u!1 &163725324
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,6 +441,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1388894902}
   - component: {fileID: 1388894901}
+  - component: {fileID: 1388894903}
   m_Layer: 0
   m_Name: StageManager
   m_TagString: Untagged
@@ -445,12 +461,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64a3c5d7111464258a50587cc85d3b73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 2286978694010071632, guid: 5eaf7007b14d74bc8b5923c7a8222312, type: 3}
-  weapon: {fileID: 6238647484568603990, guid: fd7983396784d43f2b4d22af26c30df8, type: 3}
-  UIScore: {fileID: 2032252291}
-  start: {fileID: 2003883201}
-  cam: {fileID: 122131295}
 --- !u!4 &1388894902
 Transform:
   m_ObjectHideFlags: 0
@@ -465,6 +475,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1388894903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388894900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 160efb3b326dbd34a8481267f323e721, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects:
+  - {fileID: 2286978694010071632, guid: 5eaf7007b14d74bc8b5923c7a8222312, type: 3}
+  weapon: {fileID: -8981445414406637693, guid: fd7983396784d43f2b4d22af26c30df8, type: 3}
 --- !u!1 &2003883201
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,7 +526,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 5, y: 813}
   m_SizeDelta: {x: 500, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2003883203
