@@ -12,7 +12,7 @@ public class LevelManager : MonoBehaviour
     }
 
     // 스테이지 오브젝트 종류
-    public List<FieldObject> objects = new List<FieldObject>();
+    public List<GameObject> objects = new List<GameObject>();
 
     // 웨폰 종류
     public Weapon weapon;

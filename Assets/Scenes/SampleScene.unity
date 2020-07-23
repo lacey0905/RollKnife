@@ -488,7 +488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objects:
-  - {fileID: 2286978694010071632, guid: 5eaf7007b14d74bc8b5923c7a8222312, type: 3}
+  - {fileID: 7078396105954921395, guid: 5eaf7007b14d74bc8b5923c7a8222312, type: 3}
   weapon: {fileID: -8981445414406637693, guid: fd7983396784d43f2b4d22af26c30df8, type: 3}
 --- !u!1 &2003883201
 GameObject:
