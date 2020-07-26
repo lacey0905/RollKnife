@@ -22,9 +22,28 @@ public class LevelManager : MonoBehaviour
         // 웨폰 데이터 가져와서 현재 선택한 웨폰으로 갈아 끼워야 함
     }
 
+    Vector2 objPos;
+
     public void MakeLevel()
     {
-        Vector2 objPos = GetObejctStating();
+        objPos = GetObejctStating();
+        //Vector2 weaponPos = GetWeaponStarting();
+
+        //if (objPos.x < 0f)
+        //{
+        //    weaponPos = new Vector2(Mathf.Abs(weaponPos.x), weaponPos.y);
+        //}
+        //else if (objPos.x > 0f)
+        //{
+        //    weaponPos = new Vector2(Mathf.Abs(weaponPos.x) * -1f, weaponPos.y);
+        //}
+
+        Instantiate(objects[0], objPos, Quaternion.identity);
+        //Instantiate(weapon, weaponPos, Quaternion.identity);
+    }
+
+    public void SpawnWeapon()
+    {
         Vector2 weaponPos = GetWeaponStarting();
 
         if (objPos.x < 0f)
@@ -36,7 +55,6 @@ public class LevelManager : MonoBehaviour
             weaponPos = new Vector2(Mathf.Abs(weaponPos.x) * -1f, weaponPos.y);
         }
 
-        Instantiate(objects[0], objPos, Quaternion.identity);
         Instantiate(weapon, weaponPos, Quaternion.identity);
     }
 

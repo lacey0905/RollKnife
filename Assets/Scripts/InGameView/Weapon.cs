@@ -5,6 +5,8 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
 
+    public GameObject eft;
+
     public float throwPower;
     public float firePower;
     public float torque;
@@ -55,6 +57,7 @@ public class Weapon : MonoBehaviour
         rigidbody.gravityScale = 0f;
         rigidbody.angularVelocity = 0f;
         rigidbody.AddForce(transform.up * firePower, ForceMode2D.Impulse);
+        Instantiate(eft, transform.position, Quaternion.identity);
     }
 
     private void Turn()
@@ -82,6 +85,9 @@ public class Weapon : MonoBehaviour
     {
         // 오브젝트가 필드 아이템이면 파괴 플로우 호출
         collision.GetComponent<FieldItem>().ItemDestroy();
+        CameraContoller.instance.Shake();
+        Instantiate(eft, collision.transform.position, Quaternion.identity);
+
     }
 
 

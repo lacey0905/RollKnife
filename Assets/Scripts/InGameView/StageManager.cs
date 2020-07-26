@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StageManager : MonoBehaviour
 {
@@ -15,7 +16,20 @@ public class StageManager : MonoBehaviour
     int currentScore = 0;
 
     // 필드에 아이템 몇개인지
-    int currentFieldItem = 0;
+    public int currentFieldItem = 0;
+
+    public Text count;
+    public int weaponCount;
+
+    private void Start()
+    {
+        GameStart();
+    }
+
+    private void Update()
+    {
+        count.text = weaponCount.ToString();
+    }
 
 
     // 게임 시작하면 무조건 해야하는 것들 델리게이트로 연결
@@ -24,24 +38,34 @@ public class StageManager : MonoBehaviour
     public void GameStart()
     {
         Spawn();
+        LevelManager.instance.SpawnWeapon();
+        weaponCount--;
     }
 
     public void Finish()
     {
+
+        if(weaponCount <= 0)
+        {
+            Debug.Log("Lose");
+            return;
+        }
+
         // 오브젝트를 모두 파괴 했다면
-        if(currentFieldItem <= 0)
+        if (currentFieldItem <= 0)
         {
             // 다음 레벨 스폰
             // 조건에 따라서 스폰 알고리즘 다른거 실행
             Spawn();
+            LevelManager.instance.SpawnWeapon();
         }
         // 오브젝트가 남았다면
         else
         {
-            // 패배
-            // 게임 엔드 씬 이동
-            
+            weaponCount--;
+            LevelManager.instance.SpawnWeapon();
         }
+        
     }
 
     public void DecreaseFieldItem()
@@ -54,8 +78,8 @@ public class StageManager : MonoBehaviour
 
     private void Spawn()
     {
-        currentFieldItem = 1;
         LevelManager.instance.MakeLevel();
+        
     }
 
     public void AddScroe(int score)
