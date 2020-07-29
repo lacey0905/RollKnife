@@ -99,6 +99,7 @@ MonoBehaviour:
   throwPower: 13
   firePower: 30
   torque: 350
+  MaxTime: 1
 --- !u!96 &-5490015386886872719
 TrailRenderer:
   serializedVersion: 2

@@ -21,6 +21,10 @@ public class StageManager : MonoBehaviour
     public Text count;
     public int weaponCount;
 
+
+    public Slider Timer;
+
+
     private void Start()
     {
         GameStart();

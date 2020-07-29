@@ -23,7 +23,11 @@ public class Weapon : MonoBehaviour
         Throw();
         Turn();
         StartCoroutine("WeaponUpdate");
+        curTime = MaxTime;
     }
+
+    public float MaxTime;
+    float curTime;
 
     IEnumerator WeaponUpdate()
     {
@@ -36,7 +40,31 @@ public class Weapon : MonoBehaviour
             if(Input.GetMouseButtonDown(0))
             {
                 Fire();
+                //Time.timeScale = 0.5f;
             }
+            //else if(Input.GetMouseButtonUp(0))
+            //{
+            //    Fire();
+            //    Time.timeScale = 1.0f;
+            //    StageManager.instance.Timer.maxValue = MaxTime;
+            //    StageManager.instance.Timer.value = MaxTime;
+            //    curTime = MaxTime;
+            //}
+            //else if(Input.GetMouseButton(0))
+            //{
+            //    curTime -= Time.deltaTime;
+            //    StageManager.instance.Timer.value = curTime;
+            //    if(curTime <= 0f)
+            //    {
+            //        Fire();
+            //        Time.timeScale = 1.0f;
+            //        StageManager.instance.Timer.maxValue = MaxTime;
+            //        StageManager.instance.Timer.value = MaxTime;
+            //        curTime = MaxTime;
+            //    }
+            //}
+
+            //Time.fixedDeltaTime = 0.02F * Time.timeScale;
 
 
             // 스테이지 종료 조건 체크
